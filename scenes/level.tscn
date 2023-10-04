@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbkhjo7p1xvig"]
+[gd_scene load_steps=6 format=3 uid="uid://dbkhjo7p1xvig"]
 
 [ext_resource type="Script" path="res://scripts/bg.gd" id="1_ysrm1"]
 [ext_resource type="TileSet" uid="uid://cbrm6tgdqdd1f" path="res://graphics/tile sets/background_tile_set.tres" id="2_1fwm0"]
 [ext_resource type="TileSet" uid="uid://b2eehst0nvoyj" path="res://graphics/tile sets/terrain_tile_set.tres" id="2_gao20"]
-[ext_resource type="PackedScene" uid="uid://onkaqc6y3rvn" path="res://scenes/player.tscn" id="3_u373p"]
+[ext_resource type="PackedScene" uid="uid://onkaqc6y3rvn" path="res://scenes/creep.tscn" id="3_u373p"]
+[ext_resource type="Script" path="res://scripts/creep_manager.gd" id="4_ppr3i"]
 
 [node name="level" type="Node2D"]
 
@@ -45,10 +46,19 @@ tile_set = ExtResource("2_gao20")
 format = 2
 layer_0/tile_data = PackedInt32Array(917504, 131073, 6, 917505, 131073, 6, 917506, 131073, 6, 917507, 131073, 6, 917508, 131073, 6, 917509, 131073, 6, 917510, 131073, 6, 917511, 131073, 6, 917512, 131073, 6, 917513, 131073, 6, 917514, 131073, 6, 917515, 131073, 6, 917516, 131073, 6, 917517, 131073, 6, 917518, 131073, 6, 917519, 131073, 6, 917520, 131073, 6, 917521, 131073, 6, 917522, 131073, 6, 917523, 131073, 6, 917524, 131073, 6, 917525, 131073, 6, 917526, 131073, 6, 917527, 131073, 6, 917528, 131073, 6, 917529, 131073, 6, 917530, 131073, 6, 851969, 131073, 1, 851970, 131073, 1, 851971, 131073, 1, 851972, 131073, 1, 851973, 131073, 1, 851974, 131073, 1, 851975, 131073, 1, 851976, 131073, 1, 851977, 131073, 1, 851978, 131073, 1, 851979, 131073, 1, 851980, 131073, 1, 851981, 131073, 1, 851982, 131073, 1, 851983, 131073, 1, 851984, 131073, 0, 851985, 131073, 0, 851986, 131073, 0, 851987, 131073, 1, 851988, 131073, 1, 851989, 131073, 1, 851990, 131073, 1, 851991, 131073, 1, 851992, 131073, 1, 851993, 131073, 1, 851968, 131073, 1, 851994, 131073, 1, 655360, 196609, 7, 0, 262145, 0, 65536, 196609, 6, 131072, 196609, 6, 196608, 196609, 6, 262144, 196609, 6, 327680, 196609, 6, 393216, 196609, 6, 458752, 196609, 6, 524288, 196609, 6, 589824, 196609, 6, 1, 131073, 7, 2, 131073, 7, 3, 131073, 7, 4, 131073, 7, 5, 131073, 7, 6, 131073, 7, 7, 131073, 7, 8, 131073, 7, 9, 131073, 7, 10, 131073, 7, 11, 131073, 7, 12, 131073, 7, 13, 131073, 7, 14, 131073, 7, 15, 131073, 7, 16, 131073, 7, 17, 131073, 7, 18, 131073, 7, 19, 131073, 7, 20, 131073, 7, 21, 131073, 7, 22, 131073, 7, 23, 131073, 7, 24, 131073, 7, 25, 131073, 7, 26, 327681, 0, 65562, 65537, 6, 131098, 65537, 6, 196634, 65537, 6, 262170, 65537, 6, 327706, 65537, 6, 393242, 65537, 6, 458778, 65537, 6, 524314, 65537, 6, 589850, 65537, 6, 655386, 65537, 7, 524293, 131073, 0, 524294, 131073, 0, 524295, 131073, 0, 524296, 131073, 0, 524297, 196609, 0, 524292, 65537, 0, 262161, 65537, 1, 262162, 131073, 1, 262163, 131073, 1, 262164, 196609, 1, 327698, 131073, 7, 327699, 131073, 7, 327697, 65537, 7, 327700, 196609, 7, 393229, 1, 0, 786448, 393217, 6, 786449, 393217, 6, 786450, 393217, 6, 196628, 393217, 6)
 
-[node name="Player" parent="." instance=ExtResource("3_u373p")]
-position = Vector2(259, 206)
-scale = Vector2(4, 4)
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="camera" type="Camera2D" parent="."]
 position = Vector2(853, 486)
 zoom = Vector2(1.13, 1.13)
+
+[node name="creep_manager" type="Node" parent="."]
+script = ExtResource("4_ppr3i")
+creep_scenes = Array[PackedScene]([ExtResource("3_u373p")])
+
+[node name="creep1" parent="creep_manager" instance=ExtResource("3_u373p")]
+position = Vector2(350, 647)
+
+[node name="creep2" parent="creep_manager" instance=ExtResource("3_u373p")]
+position = Vector2(479, 409)
+
+[node name="creep3" parent="creep_manager" instance=ExtResource("3_u373p")]
+position = Vector2(1077, 656)
