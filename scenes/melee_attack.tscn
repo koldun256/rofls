@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://csglqx2c2wmvn"]
+
+[ext_resource type="Texture2D" uid="uid://b6kyn6f3oaaoo" path="res://graphics/melee-swing.png" id="1_ayp67"]
+[ext_resource type="Script" path="res://scripts/melee_attack.gd" id="1_lg1bx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjvan"]
+
+[node name="melee_attack" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_lg1bx")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ayp67")
+
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wjvan")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
