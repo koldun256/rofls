@@ -4,7 +4,8 @@ var damage = 10
 @export var duration = 0.15
 var time_to_live = duration
 @onready var sprite = get_node("sprite")
-
+func _ready():
+	get_parent().remove_child(self)
 func set_direction(direction):
 	sprite.flip_h = direction == -1
 
