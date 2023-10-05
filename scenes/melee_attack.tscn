@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://csglqx2c2wmvn"]
+[gd_scene load_steps=4 format=3 uid="uid://x6rr2t2gjqnl"]
 
 [ext_resource type="Texture2D" uid="uid://b6kyn6f3oaaoo" path="res://graphics/melee-swing.png" id="1_ayp67"]
 [ext_resource type="Script" path="res://scripts/melee_attack.gd" id="1_lg1bx"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbkhjo7p1xvig"]
+[gd_scene load_steps=7 format=3 uid="uid://dbkhjo7p1xvig"]
 
 [ext_resource type="TileSet" uid="uid://cbrm6tgdqdd1f" path="res://graphics/tile sets/background_tile_set.tres" id="2_1fwm0"]
 [ext_resource type="TileSet" uid="uid://b2eehst0nvoyj" path="res://graphics/tile sets/terrain_tile_set.tres" id="2_gao20"]
 [ext_resource type="PackedScene" uid="uid://onkaqc6y3rvn" path="res://scenes/creep.tscn" id="3_u373p"]
 [ext_resource type="Script" path="res://scripts/terrain.gd" id="4_1y5id"]
 [ext_resource type="Script" path="res://scripts/creep_manager.gd" id="4_ppr3i"]
+[ext_resource type="PackedScene" uid="uid://bddpw7525gngg" path="res://scenes/hero.tscn" id="6_piy8j"]
 
 [node name="level" type="Node2D"]
 
@@ -62,3 +63,6 @@ position = Vector2(479, 409)
 
 [node name="creep3" parent="creep_manager" instance=ExtResource("3_u373p")]
 position = Vector2(1077, 656)
+
+[node name="hero" parent="." instance=ExtResource("6_piy8j")]
+position = Vector2(750, 744)
