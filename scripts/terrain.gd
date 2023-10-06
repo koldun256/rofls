@@ -1,7 +1,7 @@
 extends TileMap
 
 var HEIGHT = 13
-var WIGHT = 26
+var WIGTH = 26
 var r
 var cnt
 var zeros = 0
@@ -13,12 +13,12 @@ var probability = 0.20
 func _ready():
 	for i in range(HEIGHT):
 		var arr1 = []
-		for y in range(WIGHT):
+		for y in range(WIGTH):
 			arr1.append(1)
 		arr.append(arr1)
 	
 	for i in range(0,5):
-		arr[int(randf()*(HEIGHT-6)+3)][int(randf()*(WIGHT-6)+3)]=0
+		arr[int(randf()*(HEIGHT-6)+3)][int(randf()*(WIGTH-6)+3)]=0
 	
 	while zeros<30:
 		var choice = arrZeroI[randi() % arrZeroI.size()]
@@ -42,6 +42,9 @@ func _ready():
 					cnt+=1
 		zeros = cnt
 	for y in range(0 ,HEIGHT-1):
-		for x in range(0, WIGHT-1):
+		for x in range(0, WIGTH-1):
 			if arr[y][x] == 0:
-				set_cell(0,Vector2i(x,y),1,Vector2i(7,2))
+				if arr[y-1][x] == 1:
+					set_cell(0,Vector2i(x,y),1,Vector2i(2,3))
+				else:
+					set_cell(1,Vector2i(x,y),1,Vector2i(2,6))
