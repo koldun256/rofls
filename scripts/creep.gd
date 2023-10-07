@@ -47,7 +47,6 @@ func attack():
 	attack_node.set_process(true)
 	add_child(attack_node)
 
-
 func set_sprite_direction():
 	sprite.flip_h = facing_direction == 1
 

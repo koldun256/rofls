@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bddpw7525gngg"]
+[gd_scene load_steps=6 format=3 uid="uid://bddpw7525gngg"]
 
 [ext_resource type="Script" path="res://scripts/hero.gd" id="1_11fkb"]
 [ext_resource type="Texture2D" uid="uid://d1bvux50650qq" path="res://graphics/hero.jpg" id="1_chdkr"]
 [ext_resource type="PackedScene" uid="uid://thmv83scuk0e" path="res://scenes/health.tscn" id="2_yut0w"]
+[ext_resource type="PackedScene" uid="uid://bbxrl5g2ob3ou" path="res://scenes/hpbar.tscn" id="4_6csgo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y43r8"]
 size = Vector2(36, 33)
@@ -27,4 +28,13 @@ current_hp = 200
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
+[node name="hpbar" parent="." instance=ExtResource("4_6csgo")]
+offset_left = -29.6667
+offset_top = 17.6667
+offset_right = 30.3333
+offset_bottom = 27.6667
+value = 1.0
+
+[connection signal="damage_taken" from="health" to="hpbar" method="on_change"]
 [connection signal="death" from="health" to="." method="_on_health_death"]
+[connection signal="healed" from="health" to="hpbar" method="on_change"]
